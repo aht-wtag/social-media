@@ -21,4 +21,12 @@ RSpec.describe User,type: :model do
       expect(user).to be_valid
     end
   end
+
+  describe "checking uniqueness of the username" do
+    it "username of all the users must be unique" do
+      test_user = User.new()
+      test_user.username = "tahsin"
+      expect(test_user).not_to be_valid
+    end
+  end
 end
