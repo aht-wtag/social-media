@@ -53,14 +53,6 @@ RSpec.describe User,type: :model do
   # end
 
   describe "validating uniquness" do
-    FactoryBot.define do
-      factory :user do
-        username { Faker::Lorem.characters(number: rand(1..30)) }
-        email { Faker::Lorem.characters(number: rand(1..20)) + '@mail.com' }
-        password { BCrypt::Password.create('password123') }
-      end
-    end
-    
     user1 = FactoryBot.create(:user)
     user2 = FactoryBot.create(:user)
 
