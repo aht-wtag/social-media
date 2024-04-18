@@ -1,5 +1,5 @@
 require "rails_helper"
-require 'faker'
+require 'ffaker'
 
 RSpec.describe User, type: :model do
   user = User.create()
