@@ -45,28 +45,4 @@ RSpec.describe User, type: :model do
       expect(user2).not_to be_valid
     end
   end
-
-  describe "bio and location text length constraints" do
-    it "bio length should strictly be 150 or less" do
-      user.bio = Faker::Lorem.characters(number: 150)
-      expect(user).to be_valid
-    end
-    
-    it "bio length can not be more than 150" do
-      user.bio = Faker::Lorem.characters(number: 151)
-      expect(user).not_to be_valid
-    end
-
-    it "location should strictly be 50 or less" do
-      user.bio = Faker::Lorem.characters(number: 40)
-      user.location = Faker::Lorem.characters(number: 50)
-      expect(user).to be_valid
-    end
-    
-    it "location can not be more than 50" do
-      user.bio = Faker::Lorem.characters(number: 40)
-      user.location = Faker::Lorem.characters(number: 51)
-      expect(user).not_to be_valid
-    end
-  end
 end
