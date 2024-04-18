@@ -1,14 +1,16 @@
 require "rails_helper"
 require 'faker'
-RSpec.describe User,type: :model do
+
+RSpec.describe User, type: :model do
   user = User.create()
+  
   describe "validates username, password and email" do
     it "validates presence of username, password, email" do
-        expect(user).not_to be_valid
+      expect(user).not_to be_valid
     end
 
     it "validates presence of password, email" do
-      user.username="tahsin"
+      user.username = "tahsin"
       expect(user).not_to be_valid
     end
 
@@ -22,35 +24,6 @@ RSpec.describe User,type: :model do
       expect(user).to be_valid
     end
   end
-
-  # describe "checking uniqueness of the username and email" do
-  #   test_user = User.new()
-  #   test_user.username = "tahsin"
-  #   test_user.email = "mohsin@gmail.com"
-  #   test_user.password = "hello"
-  #   user.username = "tahsin"
-
-
-  #   it "username and email both unique" do
-  #     expect(test_user).not_to be_valid
-  #   end
-
-  #   # it "email same" do
-  #   #   user.username = "tahsin"
-  #   #   user.email = "tahsin@gmail.com"
-  #   #   user.password = "hello world"
-  #   #   test_user.email = "tahsin@gmail.com"
-  #   #   expect(test_user).to be_valid
-  #   # end
-
-  #   # it "username same" do
-  #   #   user.username = "tahsin"
-  #   #   user.email = "tahsin@gmail.com"
-  #   #   user.password = "hello world"
-  #   #   test_user.username = "tahsin"
-  #   #   expect(test_user).not_to be_valid
-  #   # end
-  # end
 
   describe "validating uniquness" do
     user1 = FactoryBot.create(:user)
@@ -71,7 +44,6 @@ RSpec.describe User,type: :model do
       user2.email = user1.email
       expect(user2).not_to be_valid
     end
-
   end
 
   describe "bio and location text length constraints" do
@@ -79,6 +51,7 @@ RSpec.describe User,type: :model do
       user.bio = Faker::Lorem.characters(number: 150)
       expect(user).to be_valid
     end
+    
     it "bio length can not be more than 150" do
       user.bio = Faker::Lorem.characters(number: 151)
       expect(user).not_to be_valid
@@ -89,6 +62,7 @@ RSpec.describe User,type: :model do
       user.location = Faker::Lorem.characters(number: 50)
       expect(user).to be_valid
     end
+    
     it "location can not be more than 50" do
       user.bio = Faker::Lorem.characters(number: 40)
       user.location = Faker::Lorem.characters(number: 51)
