@@ -1,6 +1,5 @@
 require "rails_helper"
 require "spec_helper"
-require 'pry'
 
 RSpec.describe User, type: :model do
   describe "validations of presence" do
