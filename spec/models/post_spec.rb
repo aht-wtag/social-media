@@ -1,17 +1,10 @@
 require "rails_helper"
 require "spec_helper"
 
-RSpec.describe Post type: :model do
-    post1 = Post.create()
-    describe "validates title and body" do
-        it "validates presence of title" do
-            should validate_presence_of(:title)
-        end
-
-        it "validates presence of body" do
-            should validate_presence_of(:body)
-        end
-
-        
+RSpec.describe Post, type: :model do
+    describe "validation" do
+        subject { FactoryBot.create(:post) }
+        it { is_expected.to validate_presence_of(:title) }
+        it { is_expected.to validate_presence_of(:body) }
     end
 end
