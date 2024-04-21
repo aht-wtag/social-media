@@ -2,28 +2,9 @@ require "rails_helper"
 require "spec_helper"
 
 RSpec.describe User, type: :model do
-  user = User.create()
-  
+ 
   describe "validates username, password and email" do
     it "validates presence of username" do
-      should validate_presence_of(:username)
-      should validate_presence_of(:email)
-      should validate_presence_of(:password)
-    end
-
-    it "validates presence of password, email" do
-      user.username = "tahsin"
-      should validate_presence_of(:email)
-      should validate_presence_of(:password)
-    end
-
-    it "validates presence of password" do
-      user.email = "tahsin@gmail.com"
-      should validate_presence_of(:password)
-    end
-
-    it "Should be good now so that all three must ones are present" do
-      user.password = "hello world"
       should validate_presence_of(:username)
       should validate_presence_of(:email)
       should validate_presence_of(:password)
