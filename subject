@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/asdasd/Downloads/odin-ruby-prac/social-media/spec/models/friendship_spec.rb:8 :
+
+     [1;34m3[0m: 
+     [1;34m4[0m: [1;34;4mRSpec[0m.describe [1;34;4mFriendship[0m, [35mtype[0m: [33m:model[0m [32mdo[0m
+     [1;34m5[0m: 
+     [1;34m6[0m:   describe [31m[1;31m"[0m[31mvalidations[1;31m"[0m[31m[0m [32mdo[0m
+     [1;34m7[0m:     it { is_expected.to validate_presence_of([33m:user_id[0m)
+ =>  [1;34m8[0m: binding.pry }
+     [1;34m9[0m:     it { is_expected.to validate_presence_of([33m:friend_id[0m) }
+    [1;34m10[0m:   [32mend[0m
+    [1;34m11[0m: 
+    [1;34m12[0m:   describe [31m[1;31m"[0m[31massociations[1;31m"[0m[31m[0m [32mdo[0m
+    [1;34m13[0m:     subject { [1;34;4mFactoryBot[0m.create([33m:friendship[0m) }
+
