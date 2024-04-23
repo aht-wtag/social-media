@@ -51,7 +51,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'factory_bot_rails'
   gem 'ffaker'
-  gem 'pry', '~> 0.14.2'
+  gem 'pry-rails'
 end
 
 group :development do
