@@ -1,6 +1,3 @@
-require "rails_helper"
-require "spec_helper"
-
 RSpec.describe User, type: :model do
   describe "validations of presence and uniqueness" do
     it { is_expected.to validate_presence_of(:username) }
