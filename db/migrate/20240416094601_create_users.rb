@@ -1,5 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[7.1]
   def change
+    enable_extension("citext")
     create_table :users do |t|
       t.citext :username
       t.citext :email
