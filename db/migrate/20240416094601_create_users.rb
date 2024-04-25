@@ -1,9 +1,10 @@
 class CreateUsers < ActiveRecord::Migration[7.1]
   def change
+    enable_extension("citext")
     create_table :users do |t|
-      t.string :username
-      t.string :email
-      t.string :password_digest
+      t.citext :username, null: false
+      t.citext :email, null: false
+      t.string :password_digest, null: false
       t.text :bio
       t.text :location
 

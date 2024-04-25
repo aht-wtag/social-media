@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_22_110541) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_24_052340) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_110541) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text "title"
-    t.text "body"
+    t.text "title", null: false
+    t.text "body", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,9 +33,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_110541) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.citext "username"
-    t.citext "email"
-    t.string "password_digest"
+    t.citext "username", null: false
+    t.citext "email", null: false
+    t.string "password_digest", null: false
     t.text "bio"
     t.text "location"
     t.datetime "created_at", null: false
