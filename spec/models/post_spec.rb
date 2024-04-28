@@ -1,21 +1,21 @@
 RSpec.describe Post, type: :model do
-    subject { FactoryBot.create(:post) }
-    describe "validation" do
+    let(:post_with_empty_strings) { FactoryBot.build(:post, title: '', body: '') }
+    describe "validations" do
         it { is_expected.to validate_presence_of(:title) }
         it { is_expected.to validate_presence_of(:body) }
 
-        it "is invalid with null title" do
-            subject.title = nil
-            expect(subject).to_not be_valid
+        it "is invalid without a title" do
+            expect(post_with_empty_strings).to_not be_valid
+            expect(post_with_empty_strings.errors[:title]).to include("can't be blank")
         end
-        
-        it "is invalid with null body" do
-            subject.body = nil
-            expect(subject).to_not be_valid
-        end
+
+        it "is invalid without a body" do
+            expect(post_with_empty_strings).to_not be_valid
+            expect(post_with_empty_strings.errors[:body]).to include("can't be blank")
+          end
     end
     
-    describe "belongs to association" do
+    describe "associations" do
         it { is_expected.to belong_to(:user) }
     end
 end
