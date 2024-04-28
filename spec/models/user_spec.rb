@@ -20,4 +20,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to_not allow_value('').for(:email) }
     it { is_expected.to_not allow_value(nil).for(:email) }
   end
+
+  describe "associations" do
+    it { is_expected.to have_many(:posts).dependent(:destroy) }
+  end
 end
